@@ -17,20 +17,18 @@ class Reg(StatesGroup):
     name = State()
     number = State()
 
-# 1-Handler - Start komandasi
 print("bu yangi commit uchun")
 @dp.message(CommandStart())
 async def cmd_start(message: Message):
     await message.answer(f"Assalomu alaykum hurmatli foydalanuvchi!\nTest Botimizga xush kelibsiz!", 
                         reply_markup=menyu)
 
-# 2-Handler - Katalog tugmasi
 @dp.callback_query(F.data == 'catalog')
 async def catalog(callback: CallbackQuery):
     await callback.answer("Siz Katalog tugmasini bosdingiz!")
     await callback.message.edit_text('Bitta meva tanlang:', reply_markup=inline_katalog)
 
-# 3-Handler - Yordam tugmasi
+
 @dp.callback_query(F.data == 'help')
 async def help_handler(callback: CallbackQuery):
     await callback.answer("Yordam bo'limi!")
@@ -51,7 +49,6 @@ Savollar bo'lsa, Adminga murojaat qiling.
     """
     await callback.message.edit_text(help_text, reply_markup=bosh_sahifa)
 
-# 4-Handler - Anor haqida
 @dp.callback_query(F.data == 'anor')
 async def anor_info(callback: CallbackQuery):
     await callback.answer("Anor haqida ma'lumot!")
@@ -78,7 +75,6 @@ Anor Gʻarbiy Osiyo aholisi tomonidan qadim zamonlardan buyon qo'llanib kelinadi
     """
     await callback.message.edit_text(anor_text, reply_markup=orqaga_va_bosh)
 
-# 5-Handler - Olma haqida
 @dp.callback_query(F.data == 'olma')
 async def olma_info(callback: CallbackQuery):
     await callback.answer("Olma haqida ma'lumot!")
@@ -103,7 +99,6 @@ Mavsumi: Avgustdan noyabrgacha
     """
     await callback.message.edit_text(olma_text, reply_markup=orqaga_va_bosh)
 
-# 6-Handler - Anjir haqida
 @dp.callback_query(F.data == 'anjir')
 async def anjir_info(callback: CallbackQuery):
     await callback.answer("Anjir haqida ma'lumot!")
@@ -130,7 +125,6 @@ Anjir qadimgi zamonlardan beri O'rta er dengizi hududlarida yetishtiriladi.
     """
     await callback.message.edit_text(anjir_text, reply_markup=orqaga_va_bosh)
 
-# 7-Handler - Banan haqida
 @dp.callback_query(F.data == 'banan')
 async def banan_info(callback: CallbackQuery):
     await callback.answer("Banan haqida ma'lumot!")
@@ -157,7 +151,6 @@ Banan tropik va subtropik hududlarda yetishtiriladi va dunyoning eng mashhur mev
     """
     await callback.message.edit_text(banan_text, reply_markup=orqaga_va_bosh)
 
-# 8-Handler - Uzum haqida
 @dp.callback_query(F.data == 'uzum')
 async def uzum_info(callback: CallbackQuery):
     await callback.answer("Uzum haqida ma'lumot!")
@@ -184,13 +177,13 @@ Uzum qadimgi zamonlardan beri dunyoning turli hududlarida yetishtiriladi va vino
     """
     await callback.message.edit_text(uzum_text, reply_markup=orqaga_va_bosh)
 
-# 9-Handler - Orqaga qaytish (katalogga)
+
 @dp.callback_query(F.data.in_(['orqaga', 'back']))
 async def orqaga_katalog(callback: CallbackQuery):
     await callback.answer("Katalogga qaytildi!")
     await callback.message.edit_text('Bitta meva tanlang:', reply_markup=inline_katalog)
 
-# 10-Handler - Bosh sahifaga qaytish
+
 @dp.callback_query(F.data == 'bosh_sahifa')
 async def bosh_sahifa_handler(callback: CallbackQuery):
     await callback.answer("Bosh sahifaga qaytildi!")
