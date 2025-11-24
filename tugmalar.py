@@ -1,8 +1,6 @@
-# tugmalar.py
-
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 
-# Asosiy menyu
+
 menyu = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text='Katalog', callback_data='catalog'),
@@ -10,7 +8,7 @@ menyu = InlineKeyboardMarkup(inline_keyboard=[
     ]
 ])
 
-# Katalog tugmalari
+
 inline_katalog = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text="Anor", callback_data='anor'), 
@@ -26,14 +24,14 @@ inline_katalog = InlineKeyboardMarkup(inline_keyboard=[
     ]
 ])
 
-# Orqaga qaytish tugmasi (faqat katalogga)
+
 orqaga = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text='Orqaga', callback_data='orqaga')
     ]
 ])
 
-# Orqaga va bosh sahifa tugmalari
+
 orqaga_va_bosh = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text='Orqaga', callback_data='orqaga'),
@@ -41,7 +39,7 @@ orqaga_va_bosh = InlineKeyboardMarkup(inline_keyboard=[
     ]
 ])
 
-# Bosh sahifa tugmasi
+
 bosh_sahifa = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text='Bosh sahifa', callback_data='bosh_sahifa')
